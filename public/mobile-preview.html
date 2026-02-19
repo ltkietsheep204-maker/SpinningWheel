@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>📱 Mobile Preview</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .toolbar label {
+      color: #D4AF37;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .page-btns {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .page-btn {
+      background: rgba(212,175,55,0.1);
+      border: 1px solid rgba(212,175,55,0.35);
+      color: #D4AF37;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      letter-spacing: 0.8px;
+      transition: all 0.2s;
+    }
+    .page-btn:hover, .page-btn.active {
+      background: rgba(212,175,55,0.25);
+      border-color: #D4AF37;
+    }
+
+    .device-btns {
+      display: flex;
+      gap: 8px;
+    }
+    .dev-btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #aaa;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .dev-btn:hover, .dev-btn.active {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border-color: #fff;
+    }
+
+    .phone-wrap {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    /* Phone shell */
+    .phone-shell {
+      background: #111;
+      border-radius: 44px;
+      padding: 14px 10px;
+      box-shadow:
+        0 0 0 2px #333,
+        0 0 0 5px #222,
+        0 30px 80px rgba(0,0,0,0.8),
+        0 0 60px rgba(212,175,55,0.1);
+      position: relative;
+    }
+
+    /* Notch */
+    .phone-shell::before {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 26px;
+      background: #111;
+      border-radius: 0 0 18px 18px;
+      z-index: 10;
+    }
+
+    /* Side buttons */
+    .phone-shell::after {
+      content: '';
+      position: absolute;
+      top: 80px;
+      right: -4px;
+      width: 4px;
+      height: 60px;
+      background: #2a2a2a;
+      border-radius: 0 3px 3px 0;
+      box-shadow: 0 80px 0 #2a2a2a;
+    }
+
+    .phone-screen {
+      width: 390px;
+      height: 720px;
+      border-radius: 34px;
+      overflow: hidden;
+      position: relative;
+      background: #000;
+    }
+
+    iframe {
+      width: 390px;
+      height: 720px;
+      border: none;
+      display: block;
+      border-radius: 34px;
+    }
+
+    /* Status bar overlay */
+    .status-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 44px;
+      background: rgba(0,0,0,0.85);
+      border-radius: 34px 34px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 20;
+      pointer-events: none;
+    }
+    .status-time {
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .status-icons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #fff;
+      font-size: 0.72rem;
+    }
+
+    /* iPad mode */
+    .phone-wrap.ipad .phone-screen,
+    .phone-wrap.ipad iframe {
+      width: 768px;
+      height: 600px;
+      border-radius: 16px;
+    }
+    .phone-wrap.ipad .phone-shell {
+      border-radius: 20px;
+      padding: 12px 8px;
+    }
+    .phone-wrap.ipad .phone-shell::before { display: none; }
+    .phone-wrap.ipad .status-bar { display: none; }
+
+    .hint {
+      color: rgba(212,175,55,0.5);
+      font-size: 0.72rem;
+      margin-top: 18px;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="label" style="color:#D4AF37;font-size:0.85rem;font-weight:700;letter-spacing:2px;">📱 MOBILE PREVIEW</span>
+  <div class="page-btns">
+    <button class="page-btn active" onclick="loadPage('index.html', this)">🏠 Trang Chủ</button>
+    <button class="page-btn" onclick="loadPage('quiz.html', this)">📜 Câu Hỏi</button>
+    <button class="page-btn" onclick="loadPage('quiz.html?spin=1', this)">🎡 Vòng Quay</button>
+  </div>
+  <div class="device-btns">
+    <button class="dev-btn active" onclick="setDevice('phone', this)">📱 iPhone</button>
+    <button class="dev-btn" onclick="setDevice('ipad', this)">📟 iPad</button>
+  </div>
+</div>
+
+<div class="phone-wrap" id="phoneWrap">
+  <div class="phone-shell">
+    <div class="phone-screen">
+      <div class="status-bar">
+        <span class="status-time" id="clockEl">02:45</span>
+        <span class="status-icons">
+          <span>5G</span>
+          <span>●●●●</span>
+          <span>🔋</span>
+        </span>
+      </div>
+      <iframe id="previewFrame" src="index.html"></iframe>
+    </div>
+  </div>
+</div>
+
+<p class="hint">Click các nút trên để chuyển trang · Kéo thả bên trong để scroll</p>
+
+<script>
+  // Clock
+  function updateClock() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2,'0');
+    const m = String(now.getMinutes()).padStart(2,'0');
+    document.getElementById('clockEl').textContent = h + ':' + m;
+  }
+  updateClock();
+  setInterval(updateClock, 10000);
+
+  function loadPage(url, btn) {
+    document.getElementById('previewFrame').src = url;
+    document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  function setDevice(type, btn) {
+    document.querySelectorAll('.dev-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const wrap = document.getElementById('phoneWrap');
+    if (type === 'ipad') {
+      wrap.classList.add('ipad');
+    } else {
+      wrap.classList.remove('ipad');
+    }
+  }
+</script>
+</body>
+</html>
