@@ -28,7 +28,7 @@ function saveQuestions(questions) {
 app.post('/api/login', (req, res) => {
   const { password } = req.body;
   // Hardcoded password for simplicity as per request
-  if (password === 'admin123') {
+  if (password === '12345') {
     res.json({ success: true });
   } else {
     res.status(401).json({ success: false });
