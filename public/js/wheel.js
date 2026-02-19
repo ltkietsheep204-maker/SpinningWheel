@@ -128,15 +128,29 @@ function drawWheel(rotation) {
     ctx.rotate(mid);
     ctx.textAlign = 'center';
     
-    // Text
-    ctx.font = 'bold 15px "Be Vietnam Pro", sans-serif';
+    // Scale font based on canvas display size
+    const fontSize = Math.max(8, Math.min(14, Math.round(W * 0.038)));
+    ctx.font = `bold ${fontSize}px "Be Vietnam Pro", sans-serif`;
     ctx.fillStyle = PALETTE.gold;
     ctx.shadowColor = 'rgba(0,0,0,0.8)'; ctx.shadowBlur = 4;
     
-    // Place text centered in the available space
-    // Move text slightly further out to use the space left by icons
-    const dist = R_inner * 0.68;
-    ctx.fillText(seg.name, dist, 5);
+    const dist = R_inner * 0.65;
+    const lineH = fontSize + 3;
+    
+    // Split prize name into up to 2 lines to avoid overflow on small screens
+    const words = seg.name.split(' ');
+    if (words.length <= 2) {
+      ctx.fillText(seg.name, dist, lineH / 2 - 2);
+    } else if (words.length === 3) {
+      // e.g. "100 Lương Thảo" → "100" / "Lương Thảo"
+      ctx.fillText(words[0], dist, -lineH / 2 + 1);
+      ctx.fillText(words.slice(1).join(' '), dist, lineH / 2 + 1);
+    } else {
+      // e.g. "1 Lượt Chiêu Mộ" → "1 Lượt" / "Chiêu Mộ"
+      const half = Math.floor(words.length / 2);
+      ctx.fillText(words.slice(0, half).join(' '), dist, -lineH / 2 + 1);
+      ctx.fillText(words.slice(half).join(' '),     dist,  lineH / 2 + 1);
+    }
     
     ctx.restore();
   });
