@@ -128,14 +128,15 @@ function drawWheel(rotation) {
     ctx.rotate(mid);
     ctx.textAlign = 'center';
     
-    // Scale font based on canvas display size
-    const fontSize = Math.max(8, Math.min(14, Math.round(W * 0.038)));
+    // Scale font based on canvas display size — keep small enough to stay within rim
+    const fontSize = Math.max(7, Math.min(12, Math.round(W * 0.030)));
     ctx.font = `bold ${fontSize}px "Be Vietnam Pro", sans-serif`;
     ctx.fillStyle = PALETTE.gold;
-    ctx.shadowColor = 'rgba(0,0,0,0.8)'; ctx.shadowBlur = 4;
+    ctx.shadowColor = 'rgba(0,0,0,0.8)'; ctx.shadowBlur = 3;
     
-    const dist = R_inner * 0.65;
-    const lineH = fontSize + 3;
+    // Pull text inward so it stays clear of the outer rim
+    const dist = R_inner * 0.55;
+    const lineH = fontSize + 2;
     
     // Split prize name into up to 2 lines to avoid overflow on small screens
     const words = seg.name.split(' ');
