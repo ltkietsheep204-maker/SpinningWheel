@@ -1,0 +1,602 @@
+[
+  {
+    "id": 1,
+    "question": "Ai là người sáng lập ra triều đại nhà Đinh?",
+    "options": ["Đinh Bộ Lĩnh", "Lê Hoàn", "Lý Công Uẩn", "Trần Thủ Độ"],
+    "answer": 0
+  },
+  {
+    "id": 2,
+    "question": "Nhà Đinh đặt tên nước là gì?",
+    "options": ["Đại Việt", "Đại Cồ Việt", "Đại Nam", "Vạn Xuân"],
+    "answer": 1
+  },
+  {
+    "id": 3,
+    "question": "Kinh đô của nhà Đinh đặt ở đâu?",
+    "options": ["Thăng Long", "Hoa Lư", "Phú Xuân", "Đại La"],
+    "answer": 1
+  },
+  {
+    "id": 4,
+    "question": "Đinh Bộ Lĩnh dẹp loạn 12 sứ quân vào năm nào?",
+    "options": ["938", "968", "981", "1009"],
+    "answer": 1
+  },
+  {
+    "id": 5,
+    "question": "Ai là người sáng lập ra nhà Tiền Lê?",
+    "options": ["Lê Lợi", "Lê Hoàn", "Lê Thánh Tông", "Lê Đại Hành"],
+    "answer": 1
+  },
+  {
+    "id": 6,
+    "question": "Lê Hoàn đánh tan quân Tống xâm lược vào năm nào?",
+    "options": ["968", "981", "1009", "1075"],
+    "answer": 1
+  },
+  {
+    "id": 7,
+    "question": "Ai là người sáng lập ra nhà Lý?",
+    "options": ["Lý Thường Kiệt", "Lý Công Uẩn", "Lý Nhân Tông", "Lý Thánh Tông"],
+    "answer": 1
+  },
+  {
+    "id": 8,
+    "question": "Lý Công Uẩn dời đô từ Hoa Lư ra Thăng Long vào năm nào?",
+    "options": ["968", "1009", "1010", "1054"],
+    "answer": 2
+  },
+  {
+    "id": 9,
+    "question": "Chiếu dời đô được Lý Công Uẩn ban hành năm nào?",
+    "options": ["1009", "1010", "1054", "1075"],
+    "answer": 1
+  },
+  {
+    "id": 10,
+    "question": "Lý Thường Kiệt nổi tiếng với bài thơ nào?",
+    "options": ["Hịch tướng sĩ", "Nam quốc sơn hà", "Bình Ngô đại cáo", "Chiếu dời đô"],
+    "answer": 1
+  },
+  {
+    "id": 11,
+    "question": "Lý Thường Kiệt đánh phủ đầu quân Tống vào năm nào?",
+    "options": ["981", "1054", "1075", "1077"],
+    "answer": 2
+  },
+  {
+    "id": 12,
+    "question": "Trận đánh nào Lý Thường Kiệt chặn quân Tống trên sông Như Nguyệt?",
+    "options": ["Trận Bạch Đằng", "Trận Chi Lăng", "Trận Như Nguyệt", "Trận Đống Đa"],
+    "answer": 2
+  },
+  {
+    "id": 13,
+    "question": "Nhà Lý tồn tại trong bao nhiêu năm?",
+    "options": ["100 năm", "150 năm", "200 năm", "216 năm"],
+    "answer": 3
+  },
+  {
+    "id": 14,
+    "question": "Ai là người sáng lập ra nhà Trần?",
+    "options": ["Trần Thủ Độ", "Trần Cảnh", "Trần Hưng Đạo", "Trần Nhân Tông"],
+    "answer": 1
+  },
+  {
+    "id": 15,
+    "question": "Trần Hưng Đạo có tên thật là gì?",
+    "options": ["Trần Quốc Tuấn", "Trần Quốc Toản", "Trần Khánh Dư", "Trần Nhật Duật"],
+    "answer": 0
+  },
+  {
+    "id": 16,
+    "question": "Quân Mông - Nguyên xâm lược Đại Việt mấy lần dưới thời Trần?",
+    "options": ["1 lần", "2 lần", "3 lần", "4 lần"],
+    "answer": 2
+  },
+  {
+    "id": 17,
+    "question": "Hịch tướng sĩ do ai viết?",
+    "options": ["Lý Thường Kiệt", "Trần Hưng Đạo", "Lê Lợi", "Nguyễn Trãi"],
+    "answer": 1
+  },
+  {
+    "id": 18,
+    "question": "Trận Bạch Đằng năm 1288 do ai chỉ huy?",
+    "options": ["Ngô Quyền", "Lê Hoàn", "Trần Hưng Đạo", "Lý Thường Kiệt"],
+    "answer": 2
+  },
+  {
+    "id": 19,
+    "question": "Nhà Trần đánh quân Mông - Nguyên lần thứ 3 vào năm nào?",
+    "options": ["1258", "1285", "1287-1288", "1300"],
+    "answer": 2
+  },
+  {
+    "id": 20,
+    "question": "Trần Quốc Toản nổi tiếng với hành động gì trong hội nghị Bình Than?",
+    "options": ["Đọc hịch tướng sĩ", "Bóp nát quả cam", "Chém đầu sứ giả", "Vẽ bản đồ trận chiến"],
+    "answer": 1
+  },
+  {
+    "id": 21,
+    "question": "Ai là vị vua nhà Trần xuất gia đi tu sau khi nhường ngôi?",
+    "options": ["Trần Thái Tông", "Trần Thánh Tông", "Trần Nhân Tông", "Trần Anh Tông"],
+    "answer": 2
+  },
+  {
+    "id": 22,
+    "question": "Hội nghị Diên Hồng được tổ chức vào năm nào?",
+    "options": ["1258", "1282", "1285", "1288"],
+    "answer": 2
+  },
+  {
+    "id": 23,
+    "question": "Nhà Hồ do ai sáng lập?",
+    "options": ["Hồ Quý Ly", "Hồ Hán Thương", "Hồ Nguyên Trừng", "Hồ Tông Thốc"],
+    "answer": 0
+  },
+  {
+    "id": 24,
+    "question": "Hồ Quý Ly đổi tên nước thành gì?",
+    "options": ["Đại Việt", "Đại Ngu", "Đại Nam", "Đại Cồ Việt"],
+    "answer": 1
+  },
+  {
+    "id": 25,
+    "question": "Nhà Minh xâm lược Đại Việt vào năm nào?",
+    "options": ["1400", "1406", "1407", "1418"],
+    "answer": 2
+  },
+  {
+    "id": 26,
+    "question": "Ai là người khởi xướng cuộc khởi nghĩa Lam Sơn?",
+    "options": ["Nguyễn Trãi", "Lê Lợi", "Lê Lai", "Nguyễn Chích"],
+    "answer": 1
+  },
+  {
+    "id": 27,
+    "question": "Khởi nghĩa Lam Sơn bắt đầu vào năm nào?",
+    "options": ["1407", "1418", "1427", "1428"],
+    "answer": 1
+  },
+  {
+    "id": 28,
+    "question": "Ai là người \"liều mình cứu chúa\" thay Lê Lợi?",
+    "options": ["Nguyễn Trãi", "Lê Lai", "Nguyễn Chích", "Trần Nguyên Hãn"],
+    "answer": 1
+  },
+  {
+    "id": 29,
+    "question": "Bình Ngô đại cáo do ai viết?",
+    "options": ["Lê Lợi", "Nguyễn Trãi", "Lê Thánh Tông", "Nguyễn Chích"],
+    "answer": 1
+  },
+  {
+    "id": 30,
+    "question": "Trận Chi Lăng - Xương Giang diễn ra vào năm nào?",
+    "options": ["1418", "1424", "1426", "1427"],
+    "answer": 3
+  },
+  {
+    "id": 31,
+    "question": "Lê Lợi lên ngôi lấy niên hiệu gì?",
+    "options": ["Thuận Thiên", "Thiệu Bình", "Quang Thuận", "Hồng Đức"],
+    "answer": 0
+  },
+  {
+    "id": 32,
+    "question": "Vua Lê Thánh Tông trị vì vào thời kỳ nào?",
+    "options": ["1428-1433", "1442-1459", "1460-1497", "1497-1504"],
+    "answer": 2
+  },
+  {
+    "id": 33,
+    "question": "Bộ luật Hồng Đức được ban hành dưới triều vua nào?",
+    "options": ["Lê Thái Tổ", "Lê Thái Tông", "Lê Thánh Tông", "Lê Hiến Tông"],
+    "answer": 2
+  },
+  {
+    "id": 34,
+    "question": "Hội Tao Đàn do ai sáng lập?",
+    "options": ["Nguyễn Trãi", "Lê Thánh Tông", "Lê Quý Đôn", "Ngô Sĩ Liên"],
+    "answer": 1
+  },
+  {
+    "id": 35,
+    "question": "Đại Việt sử ký toàn thư do ai biên soạn?",
+    "options": ["Lê Văn Hưu", "Ngô Sĩ Liên", "Phan Phu Tiên", "Nguyễn Trãi"],
+    "answer": 1
+  },
+  {
+    "id": 36,
+    "question": "Ngô Quyền đánh tan quân Nam Hán trên sông Bạch Đằng năm nào?",
+    "options": ["905", "931", "938", "968"],
+    "answer": 2
+  },
+  {
+    "id": 37,
+    "question": "Chiến thuật nào Ngô Quyền sử dụng trên sông Bạch Đằng?",
+    "options": ["Đắp đê ngăn nước", "Cắm cọc nhọn dưới sông", "Đốt thuyền giặc", "Dùng voi trận"],
+    "answer": 1
+  },
+  {
+    "id": 38,
+    "question": "Nhà nước Vạn Xuân do ai thành lập?",
+    "options": ["Lý Bí", "Triệu Quang Phục", "Mai Thúc Loan", "Phùng Hưng"],
+    "answer": 0
+  },
+  {
+    "id": 39,
+    "question": "Lý Bí lên ngôi lấy hiệu là gì?",
+    "options": ["Lý Thái Tổ", "Lý Nam Đế", "Lý Phật Tử", "Lý Anh Tông"],
+    "answer": 1
+  },
+  {
+    "id": 40,
+    "question": "Hai Bà Trưng khởi nghĩa chống quân xâm lược nào?",
+    "options": ["Quân Tần", "Quân Hán", "Quân Đường", "Quân Tống"],
+    "answer": 1
+  },
+  {
+    "id": 41,
+    "question": "Hai Bà Trưng đặt đô ở đâu?",
+    "options": ["Cổ Loa", "Mê Linh", "Hoa Lư", "Đại La"],
+    "answer": 1
+  },
+  {
+    "id": 42,
+    "question": "Bà Triệu (Triệu Thị Trinh) khởi nghĩa chống quân nào?",
+    "options": ["Quân Hán", "Quân Ngô", "Quân Tùy", "Quân Đường"],
+    "answer": 1
+  },
+  {
+    "id": 43,
+    "question": "Mai Thúc Loan khởi nghĩa chống quân nào?",
+    "options": ["Quân Hán", "Quân Tùy", "Quân Đường", "Quân Tống"],
+    "answer": 2
+  },
+  {
+    "id": 44,
+    "question": "Phùng Hưng được nhân dân tôn xưng là gì?",
+    "options": ["Bố Cái Đại Vương", "Vạn Thắng Vương", "Nam Việt Vương", "An Nam Vương"],
+    "answer": 0
+  },
+  {
+    "id": 45,
+    "question": "Khúc Thừa Dụ giành quyền tự chủ vào năm nào?",
+    "options": ["880", "905", "931", "938"],
+    "answer": 1
+  },
+  {
+    "id": 46,
+    "question": "Dương Đình Nghệ đánh đuổi quân Nam Hán lần thứ nhất vào năm nào?",
+    "options": ["905", "931", "938", "968"],
+    "answer": 1
+  },
+  {
+    "id": 47,
+    "question": "Kinh đô Thăng Long nằm ở đâu ngày nay?",
+    "options": ["Ninh Bình", "Hà Nội", "Thanh Hóa", "Huế"],
+    "answer": 1
+  },
+  {
+    "id": 48,
+    "question": "Nhà Trần thay thế nhà nào?",
+    "options": ["Nhà Đinh", "Nhà Tiền Lê", "Nhà Lý", "Nhà Hồ"],
+    "answer": 2
+  },
+  {
+    "id": 49,
+    "question": "Chế độ Thái Thượng Hoàng phổ biến ở triều đại nào?",
+    "options": ["Nhà Lý", "Nhà Trần", "Nhà Lê", "Nhà Nguyễn"],
+    "answer": 1
+  },
+  {
+    "id": 50,
+    "question": "Trần Thủ Độ giữ chức vụ gì trong triều đình nhà Trần?",
+    "options": ["Vua", "Thái sư", "Tể tướng", "Thái úy"],
+    "answer": 1
+  },
+  {
+    "id": 51,
+    "question": "Hồ Quý Ly phế truất vua nhà nào để lên ngôi?",
+    "options": ["Nhà Lý", "Nhà Trần", "Nhà Lê", "Nhà Đinh"],
+    "answer": 1
+  },
+  {
+    "id": 52,
+    "question": "Hồ Nguyên Trừng nổi tiếng với phát minh gì?",
+    "options": ["Súng thần cơ", "Thuyền chiến", "Nỏ liên châu", "Xe vận tải"],
+    "answer": 0
+  },
+  {
+    "id": 53,
+    "question": "Lam Sơn thuộc tỉnh nào ngày nay?",
+    "options": ["Nghệ An", "Hà Tĩnh", "Thanh Hóa", "Ninh Bình"],
+    "answer": 2
+  },
+  {
+    "id": 54,
+    "question": "Nguyễn Trãi là tác giả của tác phẩm nào?",
+    "options": ["Truyện Kiều", "Dư địa chí", "Đại Việt sử ký", "Lĩnh Nam chích quái"],
+    "answer": 1
+  },
+  {
+    "id": 55,
+    "question": "Vụ án Lệ Chi Viên liên quan đến ai?",
+    "options": ["Lê Lai", "Nguyễn Trãi", "Trần Hưng Đạo", "Lê Thánh Tông"],
+    "answer": 1
+  },
+  {
+    "id": 56,
+    "question": "Nhà Mạc do ai sáng lập?",
+    "options": ["Mạc Đăng Dung", "Mạc Đăng Doanh", "Mạc Mậu Hợp", "Mạc Kính Cung"],
+    "answer": 0
+  },
+  {
+    "id": 57,
+    "question": "Thời kỳ Nam - Bắc triều là cuộc xung đột giữa hai thế lực nào?",
+    "options": ["Nhà Lê - Nhà Trần", "Nhà Lê - Nhà Mạc", "Nhà Trịnh - Nhà Nguyễn", "Nhà Đinh - Nhà Lý"],
+    "answer": 1
+  },
+  {
+    "id": 58,
+    "question": "Chúa Trịnh và Chúa Nguyễn phân chia lãnh thổ bởi con sông nào?",
+    "options": ["Sông Hồng", "Sông Gianh", "Sông Mã", "Sông Hương"],
+    "answer": 1
+  },
+  {
+    "id": 59,
+    "question": "Thời Trịnh - Nguyễn phân tranh kéo dài bao nhiêu năm?",
+    "options": ["Khoảng 50 năm", "Khoảng 100 năm", "Khoảng 150 năm", "Khoảng 200 năm"],
+    "answer": 3
+  },
+  {
+    "id": 60,
+    "question": "Phong trào Tây Sơn do ai khởi xướng?",
+    "options": ["Nguyễn Nhạc", "Nguyễn Huệ", "Nguyễn Lữ", "Ba anh em Tây Sơn"],
+    "answer": 3
+  },
+  {
+    "id": 61,
+    "question": "Nguyễn Huệ đại phá quân Thanh vào năm nào?",
+    "options": ["1785", "1786", "1788", "1789"],
+    "answer": 3
+  },
+  {
+    "id": 62,
+    "question": "Trận Ngọc Hồi - Đống Đa diễn ra vào dịp nào?",
+    "options": ["Tết Nguyên Đán", "Rằm Trung Thu", "Tết Đoan Ngọ", "Rằm tháng Giêng"],
+    "answer": 0
+  },
+  {
+    "id": 63,
+    "question": "Nguyễn Huệ lên ngôi Hoàng đế lấy niên hiệu là gì?",
+    "options": ["Thái Đức", "Quang Trung", "Cảnh Thịnh", "Gia Long"],
+    "answer": 1
+  },
+  {
+    "id": 64,
+    "question": "Quang Trung đánh tan quân Xiêm ở trận nào?",
+    "options": ["Trận Rạch Gầm - Xoài Mút", "Trận Đống Đa", "Trận Ngọc Hồi", "Trận Bạch Đằng"],
+    "answer": 0
+  },
+  {
+    "id": 65,
+    "question": "Nhà Nguyễn do ai sáng lập?",
+    "options": ["Nguyễn Huệ", "Nguyễn Ánh", "Nguyễn Phúc Khoát", "Nguyễn Kim"],
+    "answer": 1
+  },
+  {
+    "id": 66,
+    "question": "Nguyễn Ánh lên ngôi lấy niên hiệu là gì?",
+    "options": ["Minh Mạng", "Thiệu Trị", "Gia Long", "Tự Đức"],
+    "answer": 2
+  },
+  {
+    "id": 67,
+    "question": "Nhà Nguyễn đặt kinh đô ở đâu?",
+    "options": ["Thăng Long", "Hoa Lư", "Phú Xuân (Huế)", "Sài Gòn"],
+    "answer": 2
+  },
+  {
+    "id": 68,
+    "question": "Nhà Nguyễn đổi tên nước thành gì?",
+    "options": ["Đại Việt", "Việt Nam", "Đại Nam", "An Nam"],
+    "answer": 1
+  },
+  {
+    "id": 69,
+    "question": "Kinh thành Huế được xây dựng dưới triều vua nào?",
+    "options": ["Gia Long", "Minh Mạng", "Thiệu Trị", "Tự Đức"],
+    "answer": 0
+  },
+  {
+    "id": 70,
+    "question": "Chữ Nôm bắt đầu được sử dụng rộng rãi từ triều đại nào?",
+    "options": ["Nhà Lý", "Nhà Trần", "Nhà Hồ", "Nhà Lê"],
+    "answer": 1
+  },
+  {
+    "id": 71,
+    "question": "Quốc Tử Giám được xây dựng dưới triều vua nào?",
+    "options": ["Lý Thái Tổ", "Lý Thánh Tông", "Lý Nhân Tông", "Trần Thái Tông"],
+    "answer": 1
+  },
+  {
+    "id": 72,
+    "question": "Văn Miếu - Quốc Tử Giám được xây dựng năm nào?",
+    "options": ["1010", "1049", "1070", "1076"],
+    "answer": 2
+  },
+  {
+    "id": 73,
+    "question": "Khoa thi đầu tiên của Việt Nam được tổ chức năm nào?",
+    "options": ["1070", "1075", "1076", "1086"],
+    "answer": 1
+  },
+  {
+    "id": 74,
+    "question": "Chùa Một Cột được xây dựng dưới triều vua nào?",
+    "options": ["Lý Thái Tổ", "Lý Thái Tông", "Lý Thánh Tông", "Lý Nhân Tông"],
+    "answer": 1
+  },
+  {
+    "id": 75,
+    "question": "Lê Văn Hưu là tác giả của bộ sử nào?",
+    "options": ["Đại Việt sử ký toàn thư", "Đại Việt sử ký", "Đại Việt thông sử", "Khâm định Việt sử"],
+    "answer": 1
+  },
+  {
+    "id": 76,
+    "question": "Triều đại nào có nền giáo dục phát triển nhất thời phong kiến?",
+    "options": ["Nhà Lý", "Nhà Trần", "Nhà Lê sơ", "Nhà Nguyễn"],
+    "answer": 2
+  },
+  {
+    "id": 77,
+    "question": "Tháp Báo Thiên được xây dựng dưới triều đại nào?",
+    "options": ["Nhà Đinh", "Nhà Lý", "Nhà Trần", "Nhà Lê"],
+    "answer": 1
+  },
+  {
+    "id": 78,
+    "question": "Trận Bạch Đằng năm 938 đánh dấu sự kiện gì?",
+    "options": ["Khởi đầu thời Bắc thuộc", "Chấm dứt 1000 năm Bắc thuộc", "Thành lập nhà Lý", "Đánh bại quân Mông Cổ"],
+    "answer": 1
+  },
+  {
+    "id": 79,
+    "question": "Đền Hùng thờ ai?",
+    "options": ["Các vua nhà Trần", "Các Vua Hùng", "Hai Bà Trưng", "Ngô Quyền"],
+    "answer": 1
+  },
+  {
+    "id": 80,
+    "question": "Nước Âu Lạc do ai thành lập?",
+    "options": ["Vua Hùng", "An Dương Vương", "Triệu Đà", "Lý Bí"],
+    "answer": 1
+  },
+  {
+    "id": 81,
+    "question": "Thành Cổ Loa được xây dựng dưới thời ai?",
+    "options": ["Vua Hùng", "An Dương Vương", "Triệu Đà", "Ngô Quyền"],
+    "answer": 1
+  },
+  {
+    "id": 82,
+    "question": "Nhà Lý ban hành bộ luật nào đầu tiên?",
+    "options": ["Luật Hồng Đức", "Hình thư", "Luật Gia Long", "Quốc triều hình luật"],
+    "answer": 1
+  },
+  {
+    "id": 83,
+    "question": "Vua Trần Nhân Tông sáng lập phái thiền nào?",
+    "options": ["Thiền phái Tỳ Ni Đa Lưu Chi", "Thiền phái Vô Ngôn Thông", "Thiền phái Trúc Lâm", "Thiền phái Lâm Tế"],
+    "answer": 2
+  },
+  {
+    "id": 84,
+    "question": "Tướng nào của quân Mông Cổ bị bắt sống trong trận Bạch Đằng 1288?",
+    "options": ["Thoát Hoan", "Ô Mã Nhi", "Toa Đô", "A Lý Hải Nha"],
+    "answer": 1
+  },
+  {
+    "id": 85,
+    "question": "Trận Rạch Gầm - Xoài Mút diễn ra năm nào?",
+    "options": ["1782", "1785", "1788", "1789"],
+    "answer": 1
+  },
+  {
+    "id": 86,
+    "question": "Nhà Lê sơ tồn tại từ năm nào đến năm nào?",
+    "options": ["1428-1527", "1418-1527", "1428-1788", "1418-1788"],
+    "answer": 0
+  },
+  {
+    "id": 87,
+    "question": "Lê Thánh Tông chia đất nước thành bao nhiêu đạo?",
+    "options": ["10 đạo", "12 đạo", "13 đạo", "15 đạo"],
+    "answer": 2
+  },
+  {
+    "id": 88,
+    "question": "Trương Định được mệnh danh là gì?",
+    "options": ["Bình Tây Đại nguyên soái", "Bình Bắc Đại tướng quân", "Phá Cường Địch Báo Hoàng Ân", "Nam Việt Vương"],
+    "answer": 0
+  },
+  {
+    "id": 89,
+    "question": "Cuộc kháng chiến chống quân Minh kéo dài bao lâu?",
+    "options": ["5 năm", "8 năm", "10 năm", "15 năm"],
+    "answer": 2
+  },
+  {
+    "id": 90,
+    "question": "Ai là vị vua cuối cùng của nhà Trần?",
+    "options": ["Trần Thuận Tông", "Trần Thiếu Đế", "Trần Nghệ Tông", "Trần Phế Đế"],
+    "answer": 1
+  },
+  {
+    "id": 91,
+    "question": "Nhà Lý được thành lập năm nào?",
+    "options": ["1005", "1009", "1010", "1054"],
+    "answer": 1
+  },
+  {
+    "id": 92,
+    "question": "Lý Chiêu Hoàng là vị vua cuối cùng của triều đại nào?",
+    "options": ["Nhà Đinh", "Nhà Lý", "Nhà Trần", "Nhà Hồ"],
+    "answer": 1
+  },
+  {
+    "id": 93,
+    "question": "Tướng nào chỉ huy quân Tống xâm lược năm 981?",
+    "options": ["Hầu Nhân Bảo", "Tôn Sĩ Nghị", "Liễu Thăng", "Mã Viện"],
+    "answer": 0
+  },
+  {
+    "id": 94,
+    "question": "Vua Minh Mạng trị vì trong giai đoạn nào?",
+    "options": ["1802-1819", "1820-1841", "1841-1847", "1847-1883"],
+    "answer": 1
+  },
+  {
+    "id": 95,
+    "question": "Nguyễn Du sống vào thời kỳ nào?",
+    "options": ["Thời Lê sơ", "Thời Lê - Trịnh", "Cuối Lê - đầu Nguyễn", "Thời nhà Trần"],
+    "answer": 2
+  },
+  {
+    "id": 96,
+    "question": "Liễu Thăng bị giết ở trận nào?",
+    "options": ["Trận Bạch Đằng", "Trận Chi Lăng", "Trận Tốt Động", "Trận Đống Đa"],
+    "answer": 1
+  },
+  {
+    "id": 97,
+    "question": "Tôn Sĩ Nghị là tướng của nước nào bị Quang Trung đánh bại?",
+    "options": ["Nhà Minh", "Nhà Thanh", "Nhà Nguyên", "Nhà Tống"],
+    "answer": 1
+  },
+  {
+    "id": 98,
+    "question": "Hệ thống đê sông Hồng được xây dựng quy mô lớn dưới triều đại nào?",
+    "options": ["Nhà Lý", "Nhà Trần", "Nhà Lê", "Nhà Nguyễn"],
+    "answer": 1
+  },
+  {
+    "id": 99,
+    "question": "Nghề gốm Bát Tràng phát triển mạnh từ triều đại nào?",
+    "options": ["Nhà Lý", "Nhà Trần", "Nhà Lê", "Nhà Nguyễn"],
+    "answer": 0
+  },
+  {
+    "id": 100,
+    "question": "Vua nào nhà Nguyễn ký Hiệp ước Nhâm Tuất (1862) nhường 3 tỉnh miền Đông Nam Kỳ cho Pháp?",
+    "options": ["Gia Long", "Minh Mạng", "Thiệu Trị", "Tự Đức"],
+    "answer": 3
+  }
+]

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản Trị - Đại Việt Sử Ký</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<script>
+  if (!sessionStorage.getItem('adminToken')) {
+    window.location.href = 'login.html';
+  }
+</script>
+<canvas id="particleCanvas"></canvas>
+
+<header class="header">
+  <div class="header-inner">
+    <img src="logo.png" alt="Logo" class="header-logo" />
+    <div class="header-text">
+      <h1>NHẤT THỐNG ĐẠI VIỆT</h1>
+      <p>Trang Quản Trị Hệ Thống</p>
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <a href="index.html"><i class="fa-solid fa-house"></i> Trang Chủ</a>
+  <a href="admin.html" class="active"><i class="fa-solid fa-gear"></i> Quản Trị</a>
+  <a href="quiz.html"><i class="fa-solid fa-scroll"></i> Làm Câu Hỏi</a>
+</nav>
+
+<div class="container">
+
+  <div class="admin-stats" id="statsRow">
+    <div class="stat-card">
+      <div class="stat-num" id="totalCount"><i class="fa-solid fa-spinner fa-spin"></i></div>
+      <div class="stat-lbl">Tổng Câu Hỏi</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="activeCount"><i class="fa-solid fa-spinner fa-spin"></i></div>
+      <div class="stat-lbl">Đang Hoạt Động</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">6</div>
+      <div class="stat-lbl">Phần Thưởng</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">QR</div>
+      <div class="stat-lbl">Mã QR Sẵn Sàng</div>
+    </div>
+  </div>
+
+  <div class="card glass">
+    <div class="tabs">
+      <div class="tab active" data-tab="questions"><i class="fa-solid fa-list"></i> Danh Sách</div>
+      <div class="tab" data-tab="add"><i class="fa-solid fa-plus-circle"></i> Thêm Mới</div>
+      <div class="tab" data-tab="qr" id="qrTab"><i class="fa-solid fa-qrcode"></i> Tạo QR</div>
+    </div>
+
+    <!-- QUESTIONS TAB -->
+    <div class="tab-content active" id="tab-questions">
+      <div class="search-wrap">
+        <input type="text" id="searchInput" class="search-input" placeholder="Tìm kiếm câu hỏi..." oninput="filterQuestions()" />
+      </div>
+      <div class="q-list" id="questionList">
+        <div class="loading-state">Đang tải câu hỏi...</div>
+      </div>
+    </div>
+
+    <!-- ADD TAB -->
+    <div class="tab-content" id="tab-add">
+      <form id="addForm" onsubmit="addQuestion(event)">
+        <div class="form-group">
+          <label>Nội Dung Câu Hỏi</label>
+          <textarea id="addQuestion" class="form-control" rows="3" placeholder="Nhập câu hỏi lịch sử..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Đáp Án A</label>
+          <input type="text" id="addOpt0" class="form-control" placeholder="Đáp án A" required />
+        </div>
+        <div class="form-group">
+          <label>Đáp Án B</label>
+          <input type="text" id="addOpt1" class="form-control" placeholder="Đáp án B" required />
+        </div>
+        <div class="form-group">
+          <label>Đáp Án C</label>
+          <input type="text" id="addOpt2" class="form-control" placeholder="Đáp án C" required />
+        </div>
+        <div class="form-group">
+          <label>Đáp Án D</label>
+          <input type="text" id="addOpt3" class="form-control" placeholder="Đáp án D" required />
+        </div>
+        <div class="form-group">
+          <label>Đáp Án Đúng</label>
+          <select id="addAnswer" class="form-control" required>
+            <option value="0">A - Đáp án đầu tiên</option>
+            <option value="1">B - Đáp án thứ hai</option>
+            <option value="2">C - Đáp án thứ ba</option>
+            <option value="3">D - Đáp án thứ tư</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-gold"><i class="fa-solid fa-floppy-disk"></i> Thêm Câu Hỏi</button>
+      </form>
+    </div>
+
+    <!-- QR TAB -->
+    <div class="tab-content" id="tab-qr">
+      <div class="form-group">
+        <label>URL Trang Quiz</label>
+        <input type="text" id="qrUrl" class="form-control" value="" placeholder="https://your-domain.com/quiz.html" />
+      </div>
+      <button onclick="generateQR()" class="btn btn-gold"><i class="fa-solid fa-qrcode"></i> Tạo Mã QR</button>
+      <div class="qr-display" id="qrDisplay"></div>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT MODAL -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal-box">
+    <h3><i class="fa-solid fa-pen-to-square"></i> CHỈNH SỬA CÂU HỎI</h3>
+    <input type="hidden" id="editId" />
+    <div class="form-group">
+      <label>Nội Dung Câu Hỏi</label>
+      <textarea id="editQuestion" class="form-control" rows="3" required></textarea>
+    </div>
+    <div class="form-group">
+      <label>Đáp Án A</label>
+      <input type="text" id="editOpt0" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label>Đáp Án B</label>
+      <input type="text" id="editOpt1" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label>Đáp Án C</label>
+      <input type="text" id="editOpt2" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label>Đáp Án D</label>
+      <input type="text" id="editOpt3" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label>Đáp Án Đúng</label>
+      <select id="editAnswer" class="form-control" required>
+        <option value="0">A - Đáp án A</option>
+        <option value="1">B - Đáp án B</option>
+        <option value="2">C - Đáp án C</option>
+        <option value="3">D - Đáp án D</option>
+      </select>
+    </div>
+    <div style="display:flex; gap:12px; justify-content:center; margin-top:20px">
+      <button onclick="saveEdit()" class="btn btn-gold"><i class="fa-solid fa-check"></i> Lưu</button>
+      <button onclick="closeModal()" class="btn btn-danger btn-sm"><i class="fa-solid fa-times"></i> Huỷ</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/admin.js"></script>
+<script src="js/particles.js"></script>
+</body>
+</html>

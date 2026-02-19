@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Nhập Quản Trị</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { display:flex; align-items:center; justify-content:center; }
+    .login-box {
+      background: rgba(10,10,16,0.85);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      width: 100%; max-width: 400px;
+      text-align: center;
+      backdrop-filter: blur(24px);
+    }
+  </style>
+</head>
+<body>
+<canvas id="particleCanvas"></canvas>
+
+<div class="login-box">
+  <h2 style="font-family:var(--fh);color:var(--gold);margin-bottom:20px;">QUẢN TRỊ VIÊN</h2>
+  <div class="form-group">
+    <input type="password" id="password" placeholder="Nhập mật khẩu..." class="search-input" style="text-align:center" />
+  </div>
+  <button onclick="login()" class="btn btn-gold" style="width:100%"><i class="fa-solid fa-key"></i> ĐĂNG NHẬP</button>
+  <p id="error" style="color:var(--red);margin-top:10px;display:none">Mật khẩu không đúng!</p>
+</div>
+
+<script src="js/particles.js"></script>
+<script>
+  async function login() {
+    const pwd = document.getElementById('password').value;
+    // Simple api call or check hardcoded
+    try {
+      // Create a simple check
+      if(pwd === 'admin123') {
+         sessionStorage.setItem('adminToken', 'true');
+         window.location.href = 'admin.html';
+      } else {
+         throw new Error('Wrong password');
+      }
+    } catch(e) {
+      document.getElementById('error').style.display = 'block';
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏯 Đại Việt Sử Ký — Boardgame Lịch Sử</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<canvas id="particleCanvas"></canvas>
+
+<header class="header">
+  <div class="header-inner">
+    <img src="logo.png" alt="Logo" class="header-logo" />
+    <div class="header-text">
+      <h1>NHẤT THỐNG ĐẠI VIỆT</h1>
+      <p>Boardgame Lịch Sử Phong Kiến Việt Nam</p>
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <a href="index.html" class="active"><i class="fa-solid fa-house"></i> Trang Chủ</a>
+  <a href="quiz.html"><i class="fa-solid fa-scroll"></i> Làm Câu Hỏi</a>
+</nav>
+
+<div class="container">
+  <section class="hero">
+    <img src="logo.png" alt="Logo" class="hero-logo" />
+    <h2>⚔️ Chinh Phục Lịch Sử ⚔️</h2>
+    <p>Hệ thống câu hỏi trắc nghiệm lịch sử phong kiến Việt Nam dành cho boardgame. Quét mã QR, trả lời câu hỏi, chinh phục phần thưởng!</p>
+
+    <div class="generals-row">
+      <div class="general-card">
+        <div class="general-img-wrap"><img src="178181ad-7196-4290-b954-9408059089e8.png" alt="Vị Tướng 1" /></div>
+      </div>
+      <div class="general-card">
+        <div class="general-img-wrap"><img src="9cd356a9-b09c-4e54-95ac-d18b28aeca2e.png" alt="Vị Tướng 2" /></div>
+      </div>
+      <div class="general-card">
+        <div class="general-img-wrap"><img src="c38e0c79-9291-4f50-bb0f-59d5883aa719.png" alt="Vị Tướng 3" /></div>
+      </div>
+    </div>
+
+    <div class="feature-grid">
+      <a href="admin.html" class="feature-card">
+        <span class="icon"><i class="fa-solid fa-scroll"></i></span>
+        <h3>Quản Trị Câu Hỏi</h3>
+        <p>Thêm, sửa, xóa câu hỏi. Xem danh sách câu hỏi lịch sử phong kiến Việt Nam.</p>
+      </a>
+      <a href="admin.html#qr" class="feature-card">
+        <span class="icon"><i class="fa-solid fa-qrcode"></i></span>
+        <h3>Tạo Mã QR</h3>
+        <p>Tạo mã QR in vào bàn cờ boardgame. Người chơi quét QR để trả lời câu hỏi.</p>
+      </a>
+      <a href="quiz.html" class="feature-card">
+        <span class="icon"><i class="fa-solid fa-bullseye"></i></span>
+        <h3>Trả Lời Câu Hỏi</h3>
+        <p>Trang câu hỏi cho người chơi. Trả lời đúng để quay thưởng nhận lương thảo!</p>
+      </a>
+    </div>
+  </section>
+
+  <div class="gold-divider"><i class="fa-solid fa-dragon"></i></div>
+
+  <div class="howto">
+    <h3><i class="fa-solid fa-book-open"></i> Hướng Dẫn Chơi</h3>
+    <ol>
+      <li>In mã QR và dán vào các ô trên bàn cờ boardgame</li>
+      <li>Khi người chơi đến ô có QR, quét mã bằng điện thoại</li>
+      <li>Trả lời câu hỏi trắc nghiệm lịch sử phong kiến Việt Nam</li>
+      <li>Nếu trả lời đúng → <span>Quay vòng quay nhận thưởng</span></li>
+      <li>Nếu trả lời sai → Tiếp tục trò chơi offline</li>
+    </ol>
+  </div>
+
+  <div class="gold-divider"><i class="fa-solid fa-dragon"></i></div>
+
+  <div class="card glass" style="position:relative">
+    <h3><i class="fa-solid fa-gift"></i> Phần Thưởng Vòng Quay</h3>
+    <div class="prizes-preview">
+      <div class="prize-item"><span class="p-icon"><i class="fa-solid fa-wheat-awn"></i></span><div class="p-name">100 Lương thảo</div><div class="p-pct">30%</div></div>
+      <div class="prize-item"><span class="p-icon"><i class="fa-solid fa-wheat-awn"></i></span><div class="p-name">200 Lương thảo</div><div class="p-pct">20%</div></div>
+      <div class="prize-item"><span class="p-icon"><i class="fa-solid fa-wheat-awn"></i></span><div class="p-name">300 Lương thảo</div><div class="p-pct">20%</div></div>
+      <div class="prize-item"><span class="p-icon"><i class="fa-solid fa-wheat-awn"></i></span><div class="p-name">400 Lương thảo</div><div class="p-pct">10%</div></div>
+      <div class="prize-item"><span class="p-icon"><i class="fa-solid fa-wheat-awn"></i></span><div class="p-name">500 Lương thảo</div><div class="p-pct">10%</div></div>
+      <div class="prize-item"><span class="p-icon"><i class="fa-solid fa-user-plus"></i></span><div class="p-name">1 Lượt Chiêu Mộ</div><div class="p-pct">10%</div></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/particles.js"></script>
+</body>
+</html>

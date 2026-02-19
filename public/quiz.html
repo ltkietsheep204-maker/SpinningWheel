@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Làm Câu Hỏi — Đại Việt Sử Ký</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Container adjustment for larger wheel */
+    .quiz-card {
+      min-height: 550px;
+      display: flex; flex-direction: column; justify-content: center;
+      align-items: center; text-align: center;
+      padding: 40px;
+      width: 95%; max-width: 800px;
+      margin-left: auto; margin-right: auto;
+    }
+    .question-text {
+      font-family: var(--fh); font-size: clamp(1.1rem, 3vw, 1.5rem);
+      color: var(--gold-light); text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+      margin-bottom: 30px; line-height: 1.6;
+      width: 100%; text-align: center;
+    }
+
+    #questionContent {
+      width: 100%;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    
+    .options-grid {
+      display: grid; 
+      grid-template-columns: 1fr; 
+      gap: 20px; 
+      width: 100%; 
+      max-width: 680px; /* Increased max-width */
+      margin: 0 auto; /* Ensure centering */
+    }
+    @media (min-width: 768px) {
+      .options-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .option-btn {
+      background: rgba(22,22,32,0.6);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      cursor: pointer; transition: var(--transition);
+      display: flex; align-items: center; gap: 12px;
+      text-align: left; position: relative; overflow: hidden;
+    }
+    .option-btn:hover {
+      background: rgba(212,175,55,0.1);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .option-btn.selected {
+      background: rgba(212,175,55,0.25);
+      border-color: var(--gold);
+      box-shadow: 0 0 15px var(--gold-glow);
+    }
+    .option-btn.correct {
+      background: rgba(46,125,50,0.25);
+      border-color: #4CAF50;
+      box-shadow: 0 0 15px rgba(76,175,80,0.4);
+    }
+    .option-btn.wrong {
+      background: rgba(183,28,28,0.25);
+      border-color: var(--red);
+      box-shadow: 0 0 15px rgba(183,28,28,0.4);
+    }
+
+    .opt-key {
+      min-width: 32px; height: 32px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex; justify-content: center; align-items: center;
+      font-family: var(--fh); font-weight: 700; color: var(--gold);
+      flex-shrink: 0;
+    }
+    .option-btn.selected .opt-key { background: var(--gold); color: #000; }
+    .option-btn.correct  .opt-key { background: #4CAF50; color: #fff; border-color:transparent; }
+    .option-btn.wrong    .opt-key { background: var(--red); color: #fff; border-color:transparent; }
+
+    .opt-text { font-family: var(--fb); font-size: 0.95rem; color: var(--text); line-height: 1.4; }
+
+    .submit-area { margin-top: 30px; height: 60px; display: flex; align-items: center; justify-content: center; }
+
+    /* Wheel Section larger */
+    #wheelSection { text-align: center; display: none; width: 100%; }
+    #canvasContainer {
+      width: 100%; max-width: 480px; aspect-ratio: 1; margin: 0 auto;
+      position: relative; 
+      filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
+    }
+    canvas { width: 100%; height: 100%; object-fit: contain; transform: scale(1.05); }
+
+    /* Result Popup */
+    .overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+      z-index: 9999; display: flex; justify-content: center; align-items: center;
+      opacity: 0; pointer-events: none; transition: 0.3s;
+    }
+    .overlay.show { opacity: 1; pointer-events: auto; }
+    
+    .popup-card {
+      background: #1a1a24;
+      border: 1px solid var(--gold);
+      box-shadow: 0 0 50px rgba(212,175,55,0.3);
+      border-radius: var(--radius-lg);
+      padding: 40px; text-align: center;
+      width: 90%; max-width: 420px; transform: scale(0.9); transition: 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .overlay.show .popup-card { transform: scale(1); }
+    
+    .popup-icon { font-size: 4rem; margin-bottom: 20px; display: block; filter: drop-shadow(0 0 20px rgba(255,215,0,0.5)); }
+    .popup-title { font-family: var(--fh); font-size: 1.8rem; color: var(--gold); margin-bottom: 12px; font-weight: 700; text-transform: uppercase; }
+    .popup-msg { color: var(--text-sub); margin-bottom: 30px; font-size: 1rem; }
+    .prize-highlight { font-size: 1.4rem; color: var(--gold-light); font-weight: 700; margin: 15px 0; text-shadow: 0 0 10px rgba(212,175,55,0.5); }
+
+    /* Loading state */
+    .loading-spinner {
+       width: 40px; height: 40px; border: 3px solid rgba(212,175,55,0.1); 
+       border-top-color: var(--gold); border-radius: 50%;
+       animation: spin 1s infinite linear; margin: 0 auto 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+  </style>
+</head>
+<body>
+<canvas id="particleCanvas"></canvas>
+
+<!-- Top Nav -->
+<nav class="nav">
+  <a href="index.html"><i class="fa-solid fa-house"></i> Trang Chủ</a>
+  <a href="quiz.html" class="active"><i class="fa-solid fa-scroll"></i> Làm Câu Hỏi</a>
+</nav>
+
+<div class="container">
+  
+  <!-- Content Card -->
+  <div class="card glass quiz-card">
+    
+    <!-- HEADER LOGO -->
+    <img src="logo.png" style="width: min(420px, 75vw); height: auto; margin-bottom:30px; filter:drop-shadow(0 0 15px var(--gold-glow));" alt="Logo" />
+
+    <!-- QUIZ VIEW -->
+    <div id="quizSection" style="width:100%; display:flex; flex-direction:column; align-items:center;">
+      <div id="loading">
+        <div class="loading-spinner"></div>
+        <p style="color:var(--text-sub)">Đang triệu hồi câu hỏi...</p>
+      </div>
+
+      <div id="questionContent" class="hidden">
+        <h2 class="question-text" id="qText"></h2>
+        
+        <div id="optGrid" class="options-grid"></div>
+        
+        <div class="submit-area">
+          <button id="submitBtn" class="btn btn-gold" onclick="submitAnswer()" style="display:none; min-width:200px;">
+            <i class="fa-solid fa-feather-pointed"></i> XÁC NHẬN
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHEEL VIEW -->
+    <div id="wheelSection">
+      <h2 style="font-family:var(--fh); color:var(--gold); margin-bottom:10px; text-transform:uppercase;">Vòng Quay Lạc Việt</h2>
+      <p style="color:var(--text-sub); margin-bottom:20px; font-size:0.9rem;">Thần linh phù hộ, quay là trúng!</p>
+      
+      <div id="canvasContainer">
+        <canvas id="wheelCanvas" width="500" height="500"></canvas>
+      </div>
+      
+      <button id="spinBtn" class="btn btn-gold" onclick="spinWheel()" style="margin-top:25px; min-width:220px;">
+        <i class="fa-solid fa-dharmachakra"></i> QUAY THƯỞNG
+      </button>
+    </div>
+
+  </div> <!-- End Card -->
+
+</div> <!-- End Container -->
+
+<!-- RESULT POPUP -->
+<div id="resultOverlay" class="overlay">
+  <div class="popup-card" id="resultBox">
+      <span id="resultIcon" class="popup-icon"></span>
+      <div id="resultTitle" class="popup-title"></div>
+      <div id="resultMsg" class="popup-msg"></div>
+      <button id="actionBtn" class="btn btn-gold"></button>
+  </div>
+</div>
+
+<!-- PRIZE POPUP -->
+<div id="prizePopup" class="overlay">
+  <div class="popup-card" style="border-color:var(--gold-light)">
+      <span class="popup-icon">🎁</span>
+      <div class="popup-title">CHÚC MỪNG!</div>
+      <div id="prizeName" class="prize-highlight"></div>
+      <div id="prizeDesc" class="popup-msg"></div>
+      <a href="index.html" class="btn btn-gold">
+        <i class="fa-solid fa-chess-board"></i> VỀ BÀN CỜ
+      </a>
+  </div>
+</div>
+
+<script src="js/particles.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/wheel.js"></script>
+
+<!-- Inline script to modify renderQuestion in quiz.js without file rewrite -->
+<!-- Actually, I should update quiz.js to use the new classes properly or ensure the HTML structure matches -->
+<script>
+  // Monkey-patching renderQuestion to match new HTML structure if quiz.js implies different structure
+  // The quiz.js I wrote previously uses:
+  // - optGrid id
+  // - class 'option-btn'
+  // - inside: .opt-key, span text
+  // Let's verify quiz.js logic.
+  // It uses: 
+  /*
+    const btn = document.createElement('div');
+    btn.className = 'option-btn';
+    ...
+    const key = document.createElement('div');
+    key.className = 'opt-key';
+    ...
+    const span = document.createElement('span');
+    span.textContent = opt;
+    btn.appendChild(key);
+    btn.appendChild(span);
+  */
+  // This matches my CSS .option-btn, .opt-key, and span (which becomes .opt-text if I add class)
+  // I need to add class 'opt-text' to the span in quiz.js
+  
+  // Or simply style .option-btn span in CSS. I used .opt-text in CSS.
+  // Let's add that rule: .option-btn span { ... }
+</script>
+<style>
+  .option-btn span { font-family: var(--fb); font-size: 0.95rem; color: var(--text); line-height: 1.4; }
+</style>
+</body>
+</html>
