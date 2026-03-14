@@ -464,5 +464,138 @@ body {
 @keyframes cfFall { to { transform:translateY(110vh) rotate(720deg); opacity:0; } }
 .gold-particle { position:fixed; width:6px; height:6px; border-radius:50%; background:var(--gold); z-index:900; pointer-events:none; animation:particleFall var(--dur, 2s) ease-out var(--delay, 0s) forwards; }
 @keyframes particleFall { 0%{transform:translateY(0) scale(1);opacity:1} 100%{transform:translateY(100vh) scale(0);opacity:0} }
-@media (max-width: 720px) { .header-inner { padding: 12px 18px; gap: 14px; } .header-logo { width: 72px; height: 72px; transform: scale(1.7); } .header-text h1 { font-size: 1rem; letter-spacing: 1px; } .container { padding: 24px 14px; } .wheel-stage { grid-template-columns:1fr; justify-items:center; gap:0; height: auto; } .left-flank, .right-flank { display:none; } .wheel-outer { width:290px; height:290px; } .wheel-canvas { width:290px !important; height:290px !important; } .bottom-generals { display: flex; } }
-@media (max-width: 480px) { .answers-grid { grid-template-columns: 1fr; } .wheel-outer { width:265px; height:265px; } .wheel-canvas { width:265px !important; height:265px !important; } .feature-grid { grid-template-columns:1fr; } .prizes-preview { grid-template-columns:repeat(3,1fr); } }
+@media (max-width: 720px) {
+  .header-inner {
+    padding: 10px 14px;
+    gap: 10px;
+  }
+
+  .header-logo {
+    width: 58px;
+    height: 58px;
+    transform: scale(1.5);
+  }
+
+  .header-logo:hover {
+    transform: scale(1.58) rotate(-2deg);
+  }
+
+  .header-text {
+    min-width: 0;
+  }
+
+  .header-text h1 {
+    font-size: clamp(0.92rem, 4.8vw, 1.15rem);
+    letter-spacing: 0.6px;
+    line-height: 1.18;
+  }
+
+  .header-text p {
+    font-size: 0.6rem;
+    letter-spacing: 1.6px;
+    margin-top: 2px;
+  }
+
+  .nav {
+    padding: 8px 10px;
+    gap: 6px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav::-webkit-scrollbar {
+    height: 0;
+  }
+
+  .nav a {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 0.68rem;
+    letter-spacing: 0.8px;
+  }
+
+  .container {
+    padding: 20px 12px;
+  }
+
+  .hero {
+    padding: 10px 6px 0;
+  }
+
+  .hero-logo {
+    width: min(240px, 72vw);
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .feature-card {
+    padding: 20px 16px;
+  }
+
+  .howto {
+    padding: 20px 18px;
+  }
+
+  .prizes-preview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .q-opts {
+    grid-template-columns: 1fr;
+  }
+
+  .wheel-stage {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 0;
+    height: auto;
+  }
+
+  .left-flank,
+  .right-flank {
+    display: none;
+  }
+
+  .wheel-outer {
+    width: 290px;
+    height: 290px;
+  }
+
+  .wheel-canvas {
+    width: 290px !important;
+    height: 290px !important;
+  }
+
+  .bottom-generals {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .answers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wheel-outer {
+    width: 265px;
+    height: 265px;
+  }
+
+  .wheel-canvas {
+    width: 265px !important;
+    height: 265px !important;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prizes-preview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

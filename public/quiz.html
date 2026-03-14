@@ -127,6 +127,40 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
+    @media (max-width: 680px) {
+      .quiz-card {
+        min-height: auto;
+        width: 100%;
+        padding: 24px 14px;
+      }
+
+      .question-text {
+        font-size: clamp(1rem, 4.8vw, 1.2rem);
+        margin-bottom: 20px;
+      }
+
+      .option-btn {
+        padding: 14px 12px;
+      }
+
+      #canvasContainer {
+        max-width: 320px;
+      }
+
+      .popup-card {
+        padding: 28px 20px;
+      }
+
+      .popup-title {
+        font-size: 1.35rem;
+      }
+
+      #submitBtn,
+      #spinBtn {
+        min-width: 180px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -144,7 +178,7 @@
   <div class="card glass quiz-card">
     
     <!-- HEADER LOGO -->
-    <img src="logo.png" style="width: min(420px, 75vw); height: auto; margin-bottom:30px; filter:drop-shadow(0 0 15px var(--gold-glow));" alt="Logo" />
+    <img src="logo.png" style="width: min(360px, 78vw); height: auto; margin-bottom:30px; filter:drop-shadow(0 0 15px var(--gold-glow));" alt="Logo" />
 
     <!-- QUIZ VIEW -->
     <div id="quizSection" style="width:100%; display:flex; flex-direction:column; align-items:center;">
