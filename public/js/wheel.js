@@ -117,7 +117,7 @@ function drawWheel(rotation) {
   const H = wCanvas.height / (window.devicePixelRatio||1);
   const cx = W / 2, cy = H / 2;
   const R = Math.min(cx, cy) - 15;
-  const hubRadius = R * 0.21;
+  const hubRadius = R * 0.27;
 
   ctx.clearRect(0, 0, W, H);
   
@@ -170,7 +170,7 @@ function drawWheel(rotation) {
     ctx.textAlign = 'center';
     
     // Scale font based on canvas display size — keep small enough to stay within rim
-    const fontSize = Math.max(7, Math.min(10, Math.round(W * 0.026)));
+    const fontSize = Math.max(6, Math.min(9, Math.round(W * 0.023)));
     ctx.font = `bold ${fontSize}px "Be Vietnam Pro", sans-serif`;
     ctx.fillStyle = PALETTE.gold;
     ctx.shadowColor = 'rgba(0,0,0,0.8)'; ctx.shadowBlur = 3;
@@ -178,11 +178,11 @@ function drawWheel(rotation) {
     // Keep labels clear of center hub and outer rim, especially on mobile.
     const lineH = fontSize + 2;
     const dist = Math.min(
-      R_inner - 16,
-      Math.max(hubRadius + lineH * 1.8, R_inner * 0.62)
+      R_inner - 14,
+      Math.max(hubRadius + lineH * 2.6, R_inner * 0.74)
     );
 
-    const maxTextWidth = dist * 0.75;
+    const maxTextWidth = Math.max(46, dist * 0.68);
     const lines = wrapSegmentText(ctx, seg.name, maxTextWidth, 3);
     const startY = -((lines.length - 1) * lineH) / 2;
 
