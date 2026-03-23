@@ -195,6 +195,7 @@ function drawWheel(rotation) {
 
   // 3. Center hub: use uploaded pattern image, fallback to classic star.
   const rStar = hubRadius;
+  ctx.save();
   ctx.beginPath();
   ctx.arc(0, 0, rStar, 0, Math.PI * 2);
   ctx.closePath();
@@ -226,13 +227,12 @@ function drawWheel(rotation) {
 
   ctx.restore();
 
-  ctx.save();
   ctx.strokeStyle = 'rgba(255, 249, 196, 0.65)';
   ctx.lineWidth = Math.max(2, R * 0.015);
   ctx.beginPath();
   ctx.arc(0, 0, rStar, 0, Math.PI * 2);
   ctx.stroke();
-  
+
   ctx.restore(); // End rotation
   
   // 4. Pointer (Kim chỉ - Mũi tên Lạc Việt) static at top
