@@ -42,6 +42,19 @@ prizes.forEach(p => {
 let wheelRot = (360 - ARC / 2 + 360) % 360;
 let isSpinning = false;
 let wCanvas, wCtx;
+const centerPatternImg = new Image();
+let centerPatternReady = false;
+
+centerPatternImg.onload = () => {
+  centerPatternReady = true;
+  if (wCanvas && wCtx) drawWheel(wheelRot);
+};
+
+centerPatternImg.onerror = () => {
+  centerPatternReady = false;
+};
+
+centerPatternImg.src = encodeURI('./hoạ tiết .png');
 
 function initWheel() {
   wCanvas = document.getElementById('wheelCanvas');
@@ -180,28 +193,45 @@ function drawWheel(rotation) {
     ctx.restore();
   });
 
-  // 3. Center Star (Ngôi sao 12 cánh giữa trống đồng)
+  // 3. Center hub: use uploaded pattern image, fallback to classic star.
   const rStar = hubRadius;
-  ctx.beginPath(); ctx.arc(0,0, rStar, 0, Math.PI*2);
-  const centerFill = ctx.createRadialGradient(0,0,0, 0,0,rStar);
-  centerFill.addColorStop(0, PALETTE.gold);
-  centerFill.addColorStop(1, PALETTE.bronzeMid);
-  ctx.fillStyle = centerFill; ctx.fill();
-  
-  // Star/Sun shape
-  ctx.fillStyle = PALETTE.bronzeDeep;
   ctx.beginPath();
-  const starPoints = 12; // 12 cánh mặt trời
-  const innerR = rStar * 0.3;
-  const outerR = rStar * 0.8;
-  for(let i=0; i<starPoints*2; i++) {
-     const rad = (i * Math.PI) / starPoints; // 12 points -> 24 steps
-     // Actually use rotate context for simpler drawing
-     const r = (i%2===0) ? outerR : innerR;
-     ctx.lineTo(Math.cos(rad)*r, Math.sin(rad)*r);
-  }
+  ctx.arc(0, 0, rStar, 0, Math.PI * 2);
   ctx.closePath();
-  ctx.fill();
+  ctx.clip();
+
+  if (centerPatternReady) {
+    const diameter = rStar * 2;
+    ctx.drawImage(centerPatternImg, -rStar, -rStar, diameter, diameter);
+  } else {
+    const centerFill = ctx.createRadialGradient(0,0,0, 0,0,rStar);
+    centerFill.addColorStop(0, PALETTE.gold);
+    centerFill.addColorStop(1, PALETTE.bronzeMid);
+    ctx.fillStyle = centerFill;
+    ctx.fillRect(-rStar, -rStar, rStar * 2, rStar * 2);
+
+    ctx.fillStyle = PALETTE.bronzeDeep;
+    ctx.beginPath();
+    const starPoints = 12;
+    const innerR = rStar * 0.3;
+    const outerR = rStar * 0.8;
+    for (let i = 0; i < starPoints * 2; i++) {
+      const rad = (i * Math.PI) / starPoints;
+      const r = (i % 2 === 0) ? outerR : innerR;
+      ctx.lineTo(Math.cos(rad) * r, Math.sin(rad) * r);
+    }
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  ctx.restore();
+
+  ctx.save();
+  ctx.strokeStyle = 'rgba(255, 249, 196, 0.65)';
+  ctx.lineWidth = Math.max(2, R * 0.015);
+  ctx.beginPath();
+  ctx.arc(0, 0, rStar, 0, Math.PI * 2);
+  ctx.stroke();
   
   ctx.restore(); // End rotation
   
