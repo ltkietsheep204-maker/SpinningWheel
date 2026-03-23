@@ -70,6 +70,33 @@ function drawPattern(ctx, cx, cy, radius, count) {
    }
 }
 
+function wrapSegmentText(ctx, text, maxWidth, maxLines) {
+  const words = text.split(' ').filter(Boolean);
+  if (words.length === 0) return [''];
+
+  const lines = [];
+  let current = '';
+
+  for (const word of words) {
+    const candidate = current ? `${current} ${word}` : word;
+    if (ctx.measureText(candidate).width <= maxWidth) {
+      current = candidate;
+    } else {
+      if (current) lines.push(current);
+      current = word;
+    }
+  }
+
+  if (current) lines.push(current);
+
+  if (lines.length <= maxLines) return lines;
+
+  const kept = lines.slice(0, maxLines - 1);
+  const rest = lines.slice(maxLines - 1).join(' ');
+  kept.push(rest);
+  return kept;
+}
+
 function drawWheel(rotation) {
   if(!wCanvas || !wCtx) return;
   const ctx = wCtx;
@@ -77,6 +104,7 @@ function drawWheel(rotation) {
   const H = wCanvas.height / (window.devicePixelRatio||1);
   const cx = W / 2, cy = H / 2;
   const R = Math.min(cx, cy) - 15;
+  const hubRadius = R * 0.21;
 
   ctx.clearRect(0, 0, W, H);
   
@@ -129,35 +157,31 @@ function drawWheel(rotation) {
     ctx.textAlign = 'center';
     
     // Scale font based on canvas display size — keep small enough to stay within rim
-    const fontSize = Math.max(7, Math.min(12, Math.round(W * 0.030)));
+    const fontSize = Math.max(7, Math.min(10, Math.round(W * 0.026)));
     ctx.font = `bold ${fontSize}px "Be Vietnam Pro", sans-serif`;
     ctx.fillStyle = PALETTE.gold;
     ctx.shadowColor = 'rgba(0,0,0,0.8)'; ctx.shadowBlur = 3;
     
-    // Pull text inward so it stays clear of the outer rim
-    const dist = R_inner * 0.55;
+    // Keep labels clear of center hub and outer rim, especially on mobile.
     const lineH = fontSize + 2;
-    
-    // Split prize name into up to 2 lines to avoid overflow on small screens
-    const words = seg.name.split(' ');
-    if (words.length <= 2) {
-      ctx.fillText(seg.name, dist, lineH / 2 - 2);
-    } else if (words.length === 3) {
-      // e.g. "100 Lương Thảo" → "100" / "Lương Thảo"
-      ctx.fillText(words[0], dist, -lineH / 2 + 1);
-      ctx.fillText(words.slice(1).join(' '), dist, lineH / 2 + 1);
-    } else {
-      // e.g. "1 Lượt Chiêu Mộ" → "1 Lượt" / "Chiêu Mộ"
-      const half = Math.floor(words.length / 2);
-      ctx.fillText(words.slice(0, half).join(' '), dist, -lineH / 2 + 1);
-      ctx.fillText(words.slice(half).join(' '),     dist,  lineH / 2 + 1);
-    }
+    const dist = Math.min(
+      R_inner - 16,
+      Math.max(hubRadius + lineH * 1.8, R_inner * 0.62)
+    );
+
+    const maxTextWidth = dist * 0.75;
+    const lines = wrapSegmentText(ctx, seg.name, maxTextWidth, 3);
+    const startY = -((lines.length - 1) * lineH) / 2;
+
+    lines.forEach((line, lineIdx) => {
+      ctx.fillText(line, dist, startY + lineIdx * lineH);
+    });
     
     ctx.restore();
   });
 
   // 3. Center Star (Ngôi sao 12 cánh giữa trống đồng)
-  const rStar = R * 0.28;
+  const rStar = hubRadius;
   ctx.beginPath(); ctx.arc(0,0, rStar, 0, Math.PI*2);
   const centerFill = ctx.createRadialGradient(0,0,0, 0,0,rStar);
   centerFill.addColorStop(0, PALETTE.gold);
